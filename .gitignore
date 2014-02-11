@@ -5,3 +5,9 @@
 *.war
 *.ear
 JavaCC 1/bin/**
+JavaCC 2/bin/**
+JavaCC 3/bin/**
+JavaCC 4/bin/**
+.project
+.classpath
+.settings
