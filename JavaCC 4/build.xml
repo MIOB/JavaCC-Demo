@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<project default="default">
+	<property file="build.properties" />
+	<property name="bin.dir" value="${basedir}/bin" />
+	<property name="src.dir" value="${basedir}/src" />
+
+
+	<target name="clean">
+		<echo>Cleaning ${bin.dir} and directories</echo>
+		<delete includeemptydirs="true">
+			<fileset dir="${bin.dir}" includes="**/*" />
+		</delete>
+	</target>
+
+
+	<target name="generate">
+		<echo>Call JavaCC</echo>
+		<jjtree target="${src.dir}/com/competentum/demo/javacc/compiler/ExampleCompiler.jjt" outputdirectory="${src.dir}/com/competentum/demo/javacc/compiler" javacchome="${javacc.home}" />
+		<javacc target="${src.dir}/com/competentum/demo/javacc/compiler/ExampleCompiler.jj" javacchome="${javacc.home}" />
+	</target>
+
+	<target name="compile" depends="clean">
+		<echo>Compile sources</echo>
+		<javac source="${java.source}" target="${java.target}" srcdir="${src.dir}" destdir="${bin.dir}" />
+		<copy todir="${bin.dir}">
+			<fileset dir="${src.dir}">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+
+
+	<target name="default" depends="generate, compile" />
+
+</project>
