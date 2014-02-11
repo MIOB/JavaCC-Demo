@@ -21,6 +21,7 @@
 
 	<target name="compile" depends="clean">
 		<echo>Compile sources</echo>
+		<mkdir dir="${bin.dir}"/>
 		<javac source="${java.source}" target="${java.target}" srcdir="${src.dir}" destdir="${bin.dir}" />
 		<copy todir="${bin.dir}">
 			<fileset dir="${src.dir}">
