@@ -7,7 +7,7 @@ public class Main {
 				Main.class.getResourceAsStream("example.l"));
 
 		ASTCompilationUnit unit = compiler.compile();
-		//unit.dump("");
+		unit.dump("");
 		
 		unit.eval();
 	}
