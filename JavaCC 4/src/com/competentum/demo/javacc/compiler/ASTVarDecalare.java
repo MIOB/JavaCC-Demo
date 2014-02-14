@@ -24,7 +24,7 @@ public class ASTVarDecalare extends SimpleNode {
 	}
 
 	@Override
-	public Value eval(Map<String, Value> symbolTable) throws InterpreterException{
+	public AlgValue eval(Map<String, AlgValue> symbolTable) throws InterpreterException{
 		if (jjtGetNumChildren() != 1)
 			throw new InterpreterException();
 		Node child = jjtGetChild(0);
@@ -33,13 +33,13 @@ public class ASTVarDecalare extends SimpleNode {
 		String name = ((ASTIdentifier) child).getName();
 		switch (type) {
 		case INT:
-			symbolTable.put(name, new Value(type, 0));
+			symbolTable.put(name, new AlgValue(type, 0));
 			break;
 		case BOOL:
-			symbolTable.put(name, new Value(type, false));
+			symbolTable.put(name, new AlgValue(type, false));
 			break;
 		case STRING:
-			symbolTable.put(name, new Value(type, ""));
+			symbolTable.put(name, new AlgValue(type, ""));
 			break;
 		}
 		return null;

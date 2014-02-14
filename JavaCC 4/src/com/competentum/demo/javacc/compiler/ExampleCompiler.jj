@@ -678,7 +678,7 @@
   jjtree.openNodeScope(jjtn000);
 /*@egen*/}{/*@bgen(jjtree) Print */
   try {
-/*@egen*/  < PRINT >  (    id()  | literal()  )  < SEMICOLON >/*@bgen(jjtree)*/
+/*@egen*/  < PRINT >  (    orExpression()  )  < SEMICOLON >/*@bgen(jjtree)*/
   } catch (Throwable jjte000) {
     if (jjtc000) {
       jjtree.clearNodeScope(jjtn000);

@@ -1,11 +1,11 @@
 package com.competentum.demo.javacc.compiler;
 
-public class Value {
+public class AlgValue {
 	private Type type;
 	
 	private Object value;
 
-	public Value(Type type, Object value) {
+	public AlgValue(Type type, Object value) {
 		super();
 		this.type = type;
 		this.value = value;

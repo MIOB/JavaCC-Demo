@@ -14,13 +14,13 @@ class ASTUnaryMinusNode extends SimpleNode {
   }
 
 	@Override
-	public Value eval(Map<String, Value> symbolTable) throws InterpreterException {
+	public AlgValue eval(Map<String, AlgValue> symbolTable) throws InterpreterException {
 		if(jjtGetNumChildren() != 1)
 			throw new InterpreterException();
-		Value value = getChild(0).eval(symbolTable);
-		if(value.getType() != Type.INT)
+		AlgValue variable = getChild(0).eval(symbolTable);
+		if(variable.getType() != Type.INT)
 			throw new InterpreterException();
-		return new Value(Type.INT, -(int) value.getValue());
+		return new AlgValue(Type.INT, -(int) variable.getValue());
 	}
 }
 /* JavaCC - OriginalChecksum=aa96e95356d58bcfbc056e47239c4854 (do not edit this line) */

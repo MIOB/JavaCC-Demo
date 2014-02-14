@@ -14,23 +14,23 @@ class ASTOrNode extends SimpleNode {
   }
   
 	@Override
-	public Value eval(Map<String, Value> symbolTable)throws InterpreterException {
+	public AlgValue eval(Map<String, AlgValue> symbolTable)throws InterpreterException {
 		if(jjtGetNumChildren() < 1)
 			throw new InterpreterException();
-		Value value = getChild(0).eval(symbolTable);
+		AlgValue value = getChild(0).eval(symbolTable);
 		for (int i = 1; i < jjtGetNumChildren(); i++)
 			value = or(value, getChild(i).eval(symbolTable));
 
 		return value;
 	}
 	
-	private Value or(Value a, Value b) throws InterpreterException {
+	private AlgValue or(AlgValue a, AlgValue b) throws InterpreterException {
 		if(a == null || b == null)
 			throw new InterpreterException();
 		if(a.getType() == Type.BOOL && b.getType() == Type.BOOL)
-			return new Value(Type.BOOL, (boolean)a.getValue() | (boolean)b.getValue());
+			return new AlgValue(Type.BOOL, (boolean)a.getValue() | (boolean)b.getValue());
 		if(a.getType() == Type.INT && b.getType() == Type.INT)
-			return new Value(Type.INT, (int)a.getValue() | (int)b.getValue());
+			return new AlgValue(Type.INT, (int)a.getValue() | (int)b.getValue());
 		throw new InterpreterException();
 	}
 

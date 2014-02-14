@@ -28,8 +28,8 @@ public class ASTStringLiteral extends SimpleNode {
 	}
 
 	@Override
-	public Value eval(Map<String, Value> symbolTable) {
-		return new Value(Type.STRING, value);
+	public AlgValue eval(Map<String, AlgValue> symbolTable) {
+		return new AlgValue(Type.STRING, value);
 	}
 
 }

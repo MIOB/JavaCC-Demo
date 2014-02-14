@@ -13,7 +13,7 @@ public class ASTBlock extends SimpleNode {
 	}
 
 	@Override
-	public Value eval(Map<String, Value> symbolTable) throws InterpreterException {
+	public AlgValue eval(Map<String, AlgValue> symbolTable) throws InterpreterException {
 		for (int i = 0; i < jjtGetNumChildren(); i++)
 			getChild(i).eval(symbolTable);
 		return null;

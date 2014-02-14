@@ -101,7 +101,7 @@ public abstract class SimpleNode implements Node {
 		return id;
 	}
 
-	public abstract Value eval(Map<String, Value> symbolTable) throws InterpreterException;
+	public abstract AlgValue eval(Map<String, AlgValue> symbolTable) throws InterpreterException;
 }
 
 /*

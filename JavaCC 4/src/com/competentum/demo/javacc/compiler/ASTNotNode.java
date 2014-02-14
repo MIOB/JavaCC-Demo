@@ -13,13 +13,13 @@ public class ASTNotNode extends SimpleNode {
 	}
 
 	@Override
-	public Value eval(Map<String, Value> symbolTable) throws InterpreterException {
+	public AlgValue eval(Map<String, AlgValue> symbolTable) throws InterpreterException {
 		if(jjtGetNumChildren() != 1)
 			throw new InterpreterException();
-		Value value = getChild(0).eval(symbolTable);
-		if(value.getType() != Type.BOOL)
+		AlgValue variable = getChild(0).eval(symbolTable);
+		if(variable.getType() != Type.BOOL)
 			throw new InterpreterException();
-		return new Value(Type.BOOL, !(boolean) value.getValue());
+		return new AlgValue(Type.BOOL, !(boolean) variable.getValue());
 	}
 
 }

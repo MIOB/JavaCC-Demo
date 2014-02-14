@@ -24,7 +24,7 @@ public class ASTIdentifier extends SimpleNode {
 	}
 
 	@Override
-	public Value eval(Map<String, Value> symbolTable) {
+	public AlgValue eval(Map<String, AlgValue> symbolTable) {
 		return symbolTable.get(name);
 	}
 

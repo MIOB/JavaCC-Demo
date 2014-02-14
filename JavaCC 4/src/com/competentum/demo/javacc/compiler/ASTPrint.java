@@ -13,7 +13,7 @@ public class ASTPrint extends SimpleNode {
 	}
 
 	@Override
-	public Value eval(Map<String, Value> symbolTable) throws InterpreterException {
+	public AlgValue eval(Map<String, AlgValue> symbolTable) throws InterpreterException {
 		System.out.println(getChild(0).eval(symbolTable).getValue());
 		return null;
 	}

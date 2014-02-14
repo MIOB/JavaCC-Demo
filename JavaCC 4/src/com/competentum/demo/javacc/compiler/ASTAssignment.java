@@ -14,15 +14,15 @@ public class ASTAssignment extends SimpleNode {
 	}
 
 	@Override
-	public Value eval(Map<String, Value> symbolTable)
+	public AlgValue eval(Map<String, AlgValue> symbolTable)
 			throws InterpreterException {
 		if (jjtGetNumChildren() != 2)
 			throw new InterpreterException();
 		ASTIdentifier id = (ASTIdentifier) getChild(0);
 		if (!symbolTable.containsKey(id.getName()))
 			throw new InterpreterException();
-		Value var = symbolTable.get(id.getName());
-		Value value = getChild(1).eval(symbolTable);
+		AlgValue var = symbolTable.get(id.getName());
+		AlgValue value = getChild(1).eval(symbolTable);
 		if (var.getType() == Type.STRING) {
 			if (value.getValue() != null)
 				var.setValue(value.getValue().toString());

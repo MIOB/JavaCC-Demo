@@ -14,26 +14,26 @@ class ASTEQNode extends SimpleNode {
   }
 
 	@Override
-	public Value eval(Map<String, Value> symbolTable)throws InterpreterException {
+	public AlgValue eval(Map<String, AlgValue> symbolTable)throws InterpreterException {
 		if(jjtGetNumChildren() < 1)
 			throw new InterpreterException();
-		Value value = getChild(0).eval(symbolTable);
+		AlgValue variable = getChild(0).eval(symbolTable);
 		for (int i = 1; i < jjtGetNumChildren(); i++)
-			value = ne(value, getChild(i).eval(symbolTable));
+			variable = ne(variable, getChild(i).eval(symbolTable));
 
-		return value;
+		return variable;
 	}
 	
-	private Value ne(Value a, Value b) throws InterpreterException {
+	private AlgValue ne(AlgValue a, AlgValue b) throws InterpreterException {
 		if(a == null && b != null || a != null && b == null)
-			return new Value(Type.BOOL, false);
+			return new AlgValue(Type.BOOL, false);
 		if(a == null && b == null)
-			return new Value(Type.BOOL, true);
+			return new AlgValue(Type.BOOL, true);
 		if(a.getType() != b.getType())
-			return new Value(Type.BOOL, false);
+			return new AlgValue(Type.BOOL, false);
 		if(a.getValue() == null)
-			return new Value(Type.BOOL, b.getValue() == null);
-		return new Value(Type.BOOL, a.getValue().equals(b.getValue()));
+			return new AlgValue(Type.BOOL, b.getValue() == null);
+		return new AlgValue(Type.BOOL, a.getValue().equals(b.getValue()));
 		
 	}
 

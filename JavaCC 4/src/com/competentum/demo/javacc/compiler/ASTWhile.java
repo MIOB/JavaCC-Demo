@@ -13,7 +13,7 @@ public class ASTWhile extends SimpleNode {
 	}
 
 	@Override
-	public Value eval(Map<String, Value> symbolTable)
+	public AlgValue eval(Map<String, AlgValue> symbolTable)
 			throws InterpreterException {
 		if(jjtGetNumChildren() != 2)
 			throw new InterpreterException();
@@ -23,7 +23,7 @@ public class ASTWhile extends SimpleNode {
 		return null;
 	}
 
-	private boolean check(Value val) throws InterpreterException {
+	private boolean check(AlgValue val) throws InterpreterException {
 		if (val == null || val.getType() != Type.BOOL)
 			throw new InterpreterException();
 		return (boolean) val.getValue();

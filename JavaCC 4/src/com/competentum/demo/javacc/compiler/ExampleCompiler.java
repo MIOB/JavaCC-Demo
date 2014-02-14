@@ -1049,23 +1049,7 @@ if (jjtc000) {
   jjtree.openNodeScope(jjtn000);
     try {
       jj_consume_token(PRINT);
-      switch ((jj_ntk==-1)?jj_ntk_f():jj_ntk) {
-      case IDENTIFIER:{
-        id();
-        break;
-        }
-      case TRUE:
-      case FALSE:
-      case INTEGER_LITERAL:
-      case STRING_LITERAL:{
-        literal();
-        break;
-        }
-      default:
-        jj_la1[20] = jj_gen;
-        jj_consume_token(-1);
-        throw new ParseException();
-      }
+      orExpression();
       jj_consume_token(SEMICOLON);
     } catch (Throwable jjte000) {
 if (jjtc000) {
@@ -1126,7 +1110,7 @@ if (jjtc000) {
   private Token jj_scanpos, jj_lastpos;
   private int jj_la;
   private int jj_gen;
-  final private int[] jj_la1 = new int[21];
+  final private int[] jj_la1 = new int[20];
   static private int[] jj_la1_0;
   static private int[] jj_la1_1;
   static {
@@ -1134,10 +1118,10 @@ if (jjtc000) {
       jj_la1_init_1();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0x800069c0,0x800069c0,0x1c0,0x44000600,0x10000,0x20000,0x40000,0x1f80000,0x1f80000,0x6000000,0x6000000,0x38000000,0x38000000,0x44000600,0x600,0x600,0x600,0x80006800,0x80006800,0x1000,0x600,};
+      jj_la1_0 = new int[] {0x800069c0,0x800069c0,0x1c0,0x44000600,0x10000,0x20000,0x40000,0x1f80000,0x1f80000,0x6000000,0x6000000,0x38000000,0x38000000,0x44000600,0x600,0x600,0x600,0x80006800,0x80006800,0x1000,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0x21,0x21,0x0,0x74,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x74,0x74,0x50,0x0,0x21,0x21,0x0,0x70,};
+      jj_la1_1 = new int[] {0x21,0x21,0x0,0x74,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x74,0x74,0x50,0x0,0x21,0x21,0x0,};
    }
   final private JJCalls[] jj_2_rtns = new JJCalls[1];
   private boolean jj_rescan = false;
@@ -1154,7 +1138,7 @@ if (jjtc000) {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 21; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 20; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -1170,7 +1154,7 @@ if (jjtc000) {
     jj_ntk = -1;
     jjtree.reset();
     jj_gen = 0;
-    for (int i = 0; i < 21; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 20; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -1181,7 +1165,7 @@ if (jjtc000) {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 21; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 20; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -1193,7 +1177,7 @@ if (jjtc000) {
     jj_ntk = -1;
     jjtree.reset();
     jj_gen = 0;
-    for (int i = 0; i < 21; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 20; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -1203,7 +1187,7 @@ if (jjtc000) {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 21; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 20; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -1214,7 +1198,7 @@ if (jjtc000) {
     jj_ntk = -1;
     jjtree.reset();
     jj_gen = 0;
-    for (int i = 0; i < 21; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 20; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -1332,7 +1316,7 @@ if (jjtc000) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
     }
-    for (int i = 0; i < 21; i++) {
+    for (int i = 0; i < 20; i++) {
       if (jj_la1[i] == jj_gen) {
         for (int j = 0; j < 32; j++) {
           if ((jj_la1_0[i] & (1<<j)) != 0) {

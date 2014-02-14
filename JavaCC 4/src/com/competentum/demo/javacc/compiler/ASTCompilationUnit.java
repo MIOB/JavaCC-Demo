@@ -14,7 +14,7 @@ public class ASTCompilationUnit extends SimpleNode {
 	}
 
 	@Override
-	public Value eval(Map<String, Value> symbolTable) throws InterpreterException {
+	public AlgValue eval(Map<String, AlgValue> symbolTable) throws InterpreterException {
 		for (int i = 0; i < jjtGetNumChildren(); i++) {
 			getChild(i).eval(symbolTable);
 		}
@@ -22,8 +22,8 @@ public class ASTCompilationUnit extends SimpleNode {
 	}
 	
 
-	public Map<String, Value> eval() throws InterpreterException {
-		Map<String, Value> symbolTable = new HashMap<String, Value>();
+	public Map<String, AlgValue> eval() throws InterpreterException {
+		Map<String, AlgValue> symbolTable = new HashMap<String, AlgValue>();
 		eval(symbolTable);
 		return symbolTable;
 	}

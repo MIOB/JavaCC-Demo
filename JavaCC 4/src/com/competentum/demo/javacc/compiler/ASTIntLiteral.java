@@ -25,8 +25,8 @@ public class ASTIntLiteral extends SimpleNode {
 	}
 
 	@Override
-	public Value eval(Map<String, Value> symbolTable) {
-		return new Value(Type.INT, value);
+	public AlgValue eval(Map<String, AlgValue> symbolTable) {
+		return new AlgValue(Type.INT, value);
 	}
 
 }

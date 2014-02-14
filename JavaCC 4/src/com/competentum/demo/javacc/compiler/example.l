@@ -15,10 +15,11 @@ var1 = 1;
 
 while(var1 <= 10)
 {
-
+	print ("While [" + var1 + "]");
+	
 	var4 = var4 + " " + var1;
 	var1 = var1 + 1;
-	print "In while";
+	
 }
 
 print var1;

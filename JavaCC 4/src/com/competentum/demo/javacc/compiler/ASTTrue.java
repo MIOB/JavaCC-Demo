@@ -13,8 +13,8 @@ public class ASTTrue extends SimpleNode {
 	}
 
 	@Override
-	public Value eval(Map<String, Value> symbolTable) {
-		return new Value(Type.BOOL, true);
+	public AlgValue eval(Map<String, AlgValue> symbolTable) {
+		return new AlgValue(Type.BOOL, true);
 	}
 
 }

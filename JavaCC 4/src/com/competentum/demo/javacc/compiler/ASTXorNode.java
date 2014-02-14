@@ -13,21 +13,21 @@ public class ASTXorNode extends SimpleNode {
 	}
 
 	@Override
-	public Value eval(Map<String, Value> symbolTable)throws InterpreterException {
-		Value value = getChild(0).eval(symbolTable);
+	public AlgValue eval(Map<String, AlgValue> symbolTable)throws InterpreterException {
+		AlgValue variable = getChild(0).eval(symbolTable);
 		for (int i = 1; i < jjtGetNumChildren(); i++)
-			value = xor(value, getChild(i).eval(symbolTable));
+			variable = xor(variable, getChild(i).eval(symbolTable));
 
-		return value;
+		return variable;
 	}
 	
-	private Value xor(Value a, Value b) throws InterpreterException {
+	private AlgValue xor(AlgValue a, AlgValue b) throws InterpreterException {
 		if(a == null || b == null)
 			throw new InterpreterException();
 		if(a.getType() == Type.BOOL && b.getType() == Type.BOOL)
-			return new Value(Type.BOOL, (boolean)a.getValue() ^ (boolean)b.getValue());
+			return new AlgValue(Type.BOOL, (boolean)a.getValue() ^ (boolean)b.getValue());
 		if(a.getType() == Type.INT && b.getType() == Type.INT)
-			return new Value(Type.INT, (int)a.getValue() ^ (int)b.getValue());
+			return new AlgValue(Type.INT, (int)a.getValue() ^ (int)b.getValue());
 		throw new InterpreterException();
 	}
 }

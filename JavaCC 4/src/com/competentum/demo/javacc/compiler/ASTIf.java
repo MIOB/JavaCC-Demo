@@ -13,12 +13,12 @@ public class ASTIf extends SimpleNode {
 	}
 
 	@Override
-	public Value eval(Map<String, Value> symbolTable)
+	public AlgValue eval(Map<String, AlgValue> symbolTable)
 			throws InterpreterException {
 		if (jjtGetNumChildren() != 2 && jjtGetNumChildren() != 3)
 			throw new InterpreterException();
 
-		Value condition = getChild(0).eval(symbolTable);
+		AlgValue condition = getChild(0).eval(symbolTable);
 		if (condition.getType() != Type.BOOL)
 			throw new InterpreterException();
 		if ((boolean) condition.getValue())
